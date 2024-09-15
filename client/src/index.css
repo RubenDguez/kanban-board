@@ -184,35 +184,54 @@ tbody tr:nth-child(odd) {
   width: 60%;
   height: 80%;
   background-color: #b864c4;
+  border-radius: 8px;
   margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 2rem;
 }
 
-.form > h1, .form > label {
+.form > h1 {
+  font-size: 4rem;
+}
+
+.form > h1, label {
   color: yellow;
 }
 
-.form > input {
-  width: 200px;
-  
+form > .form-field {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
 }
 
-.form > label {
-  margin-top: 2.5%;
-  margin-bottom: 2.5%;
+.form-field > input {
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 1rem 0px 0px 0px;
 }
 
-.form button {
-  margin-top: 2.5%;
+.form > .form-action {
+  width: 50%;
 }
 
-.form textarea {
-  resize: both;
-  min-height: 30px;
-  min-width: 30px;
+.form-action > button {
+  width: 100%;
+  text-transform: uppercase;
+  padding: 1rem;
+}
+
+.form > .error-message {
+  background-color: #213547;
+  width: 80%;
+  text-align: center;
+  color: tomato;
+  font-size: 1.25rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
 }
 
 .editBtn {
