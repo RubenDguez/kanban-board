@@ -7,13 +7,13 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const checkLogin = () => {
-    if(auth.loggedIn()) {
-      setLoginCheck(true);
-    }
+    if(auth.loggedIn()) setLoginCheck(true);
+    else setLoginCheck(false);
   };
 
   const handleLogout = useCallback(() => {
     auth.logout();
+    checkLogin();
     navigate('/login');
   }, [navigate]);
 
