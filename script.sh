@@ -17,8 +17,8 @@ echo "Node Version: $(node --version)"
 echo "Git Version:  $(git --version)"
 
 npm install
-sudo mv -rf kanban.service /etc/systemd/system/kanban.service
-sudo mv -rf Caddyfile /etc/caddy/Caddyfile
+sudo mv -f kanban.service /etc/systemd/system/kanban.service
+sudo mv -f Caddyfile /etc/caddy/Caddyfile
 
 sudo systemctl daemon-reload
 sudo systemctl start kanban.service
