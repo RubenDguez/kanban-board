@@ -11,8 +11,7 @@ sudo apt install caddy
 
 node --version
 git --version
-git clone https://github.com/RubenDguez/kanban-board.git
-cd kanban-board
+
 npm install
 sudo cp kanban.service /etc/systemd/system/kanban.service
 
