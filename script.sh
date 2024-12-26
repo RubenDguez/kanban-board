@@ -1,3 +1,7 @@
+sudo systemctl stop kanban
+sudo systemctl disable kanban
+sudo systemctl stop caddy
+
 sudo apt update
 sudo apt upgrade -y
 
@@ -9,12 +13,12 @@ curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 sudo apt install -y nodejs
 sudo apt install caddy
 
-node --version
-git --version
+echo "Node Version: $(node --version)"
+echo "Git Version:  $(git --version)"
 
 npm install
-sudo yes | cp -f kanban.service /etc/systemd/system/kanban.service
-sudo yes | cp -f Caddyfile /etc/caddy/Caddyfile
+sudo mv -rf kanban.service /etc/systemd/system/kanban.service
+sudo mv -rf Caddyfile /etc/caddy/Caddyfile
 
 sudo systemctl daemon-reload
 sudo systemctl start kanban.service
