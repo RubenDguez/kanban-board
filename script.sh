@@ -13,12 +13,12 @@ node --version
 git --version
 
 npm install
-sudo cp kanban.service /etc/systemd/system/kanban.service -y
+sudo cp -f kanban.service /etc/systemd/system/kanban.service
 
 sudo systemctl daemon-reload
 sudo systemctl start kanban.service
 sudo systemctl enable kanban.service
 
-sudo cp Caddyfile /etc/caddy/Caddyfile -y
+sudo cp -f Caddyfile /etc/caddy/Caddyfile
 
 sudo systemctl restart caddy
