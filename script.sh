@@ -1,4 +1,4 @@
-#!bin/bash -e
+#!/usr/bin/bash -e
 
 sudo systemctl stop kanban
 sudo systemctl disable kanban
