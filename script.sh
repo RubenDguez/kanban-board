@@ -1,3 +1,5 @@
+#!bin/bash -e
+
 sudo systemctl stop kanban
 sudo systemctl disable kanban
 sudo systemctl stop caddy
