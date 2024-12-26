@@ -1,0 +1,16 @@
+[Unit]
+Description=KanbanBoard App
+After=network.target multi-user.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/kanban-board
+ExecStart=/usr/bin/npm run start:dev
+Restart=always
+Environment=NODE_ENV=production
+EnvironmentFile=/etc/app.env
+StandardOutput=syslog
+SyslogIdentifier=kanban-board
+
+[Install]
+WantedBy=multi-user.target
