@@ -1,0 +1,22 @@
+name: DEPLOYMENT
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+env:
+  SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }} 
+      
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: setup RSA private key
+        id: setup-rsa-private-key
+        run: |
+          echo "${SSH_PRIVATE_KEY}" > ~/.ssh/id_rsa
+          chmod 0600 ~/.ssh/id_rsa
+          ssh -i ~/.ssh/id_rsa ubuntu@ip-10-0-20-80 ./scripts/deploy.sh
