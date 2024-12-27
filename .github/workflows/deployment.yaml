@@ -17,7 +17,6 @@ jobs:
       - name: setup RSA private key
         id: setup-rsa-private-key
         run: |
-          touch ~/.ssh/id_rsa
-          echo "${SSH_PRIVATE_KEY}" >> ~/.ssh/id_rsa
+          echo "${SSH_PRIVATE_KEY}" >> id_rsa
           chmod 0600 ~/.ssh/id_rsa
-          ssh -i ~/.ssh/id_rsa ubuntu@ip-10-0-20-80 ./scripts/deploy.sh
+          ssh -i id_rsa ubuntu@ip-10-0-20-80 ./scripts/deploy.sh
