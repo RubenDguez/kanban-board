@@ -17,6 +17,7 @@ jobs:
       - name: setup RSA private key
         id: setup-rsa-private-key
         run: |
+          # ssh -T ubuntu@ec2-3-95-200-25.compute-1.amazonaws.com
           echo "${SSH_PRIVATE_KEY}" >> id_rsa
           chmod 0600 id_rsa
-          sudo yes | ssh -i id_rsa ubuntu@ip-10-0-20-80 ./deploy.sh
+          ssh -i id_rsa ubuntu@ec2-3-95-200-25.compute-1.amazonaws.com ./deploy.sh 
