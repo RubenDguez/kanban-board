@@ -22,4 +22,4 @@ jobs:
           echo "-----END RSA PRIVATE KEY-----" >> EC2KeyPair.pem
           sudo echo "$(cat EC2KeyPair.pem)"
           chmod 600 EC2KeyPair.pem
-          yes | ssh -i EC2KeyPair.pem ubuntu@ec2-3-95-200-25.compute-1.amazonaws.com ./deploy.sh 
+          ssh -i EC2KeyPair.pem -o StrictHostKeyChecking=no ubuntu@ec2-3-95-200-25.compute-1.amazonaws.com ./deploy.sh 
