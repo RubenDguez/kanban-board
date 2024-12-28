@@ -7,7 +7,9 @@ on:
       - main
 
 env:
-  SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }} 
+  SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+  AWS_USERNAME: ${{ secrets.AWS_USERNAME }}
+  AWS_EC2_IP: ${{ secrets.AWS_EC2_IP }}
       
 jobs:
   deploy:
@@ -20,6 +22,8 @@ jobs:
           echo "-----BEGIN RSA PRIVATE KEY-----" >> EC2KeyPair.pem
           echo "${SSH_PRIVATE_KEY}" >> EC2KeyPair.pem
           echo "-----END RSA PRIVATE KEY-----" >> EC2KeyPair.pem
-          sudo echo "$(cat EC2KeyPair.pem)"
           chmod 600 EC2KeyPair.pem
-          ssh -i EC2KeyPair.pem -o StrictHostKeyChecking=no ubuntu@ec2-3-95-200-25.compute-1.amazonaws.com ./deploy.sh 
+
+      - name: Deploy application
+        id: deploy-application
+        run: ssh -i EC2KeyPair.pem -o StrictHostKeyChecking=no ${{env.AWS_USERNAME}}@${{ env.AWS_EC2_IP }} ./deploy.sh 
