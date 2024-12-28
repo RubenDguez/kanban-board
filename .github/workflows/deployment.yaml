@@ -25,7 +25,7 @@ jobs:
       - name: remover old kanban folder
         id: remove-old-folder
         run: |
-          ssh -i EC2KeyPair.pem -o StrictHostKeyChecking=no ${{env.AWS_USERNAME}}@${{ env.AWS_EC2_IP }} rm -rf kanban-board
+          ssh -i EC2KeyPair.pem -o StrictHostKeyChecking=no ${{env.AWS_USERNAME}}@${{ env.AWS_EC2_IP }} sudo rm -rf kanban-board
 
       - name: Deploy application
         id: deploy-application
