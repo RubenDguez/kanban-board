@@ -19,9 +19,7 @@ jobs:
       - name: setup RSA private key
         id: setup-rsa-private-key
         run: |
-          echo "-----BEGIN RSA PRIVATE KEY-----" >> EC2KeyPair.pem
           echo "${SSH_PRIVATE_KEY}" >> EC2KeyPair.pem
-          echo "-----END RSA PRIVATE KEY-----" >> EC2KeyPair.pem
           chmod 600 EC2KeyPair.pem
 
       - name: Deploy application
