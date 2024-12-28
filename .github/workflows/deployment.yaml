@@ -17,8 +17,8 @@ jobs:
       - name: setup RSA private key
         id: setup-rsa-private-key
         run: |
-          echo "-----BEGIN RSA PRIVATE KEY-----" >> id_rsa
-          echo "${SSH_PRIVATE_KEY}" >> id_rsa
-          echo "-----END RSA PRIVATE KEY-----" >> id_rsa
-          chmod 600 id_rsa
-          ssh -i id_rsa ubuntu@ec2-3-95-200-25.compute-1.amazonaws.com ./deploy.sh 
+          echo "-----BEGIN RSA PRIVATE KEY-----" >> EC2KeyPair.pem
+          echo "${SSH_PRIVATE_KEY}" >> EC2KeyPair.pem
+          echo "-----END RSA PRIVATE KEY-----" >> EC2KeyPair.pem
+          chmod 600 EC2KeyPair.pem
+          ssh -i EC2KeyPair.pem ubuntu@ec2-3-95-200-25.compute-1.amazonaws.com ./deploy.sh 
