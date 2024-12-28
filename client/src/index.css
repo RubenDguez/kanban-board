@@ -13,13 +13,13 @@
 }
 
 /* webkit solution */
-::-webkit-input-placeholder { 
-  text-align:right; 
+::-webkit-input-placeholder {
+  text-align: right;
 }
 
 /* mozilla solution */
-input:-moz-placeholder { 
-  text-align:right; 
+input:-moz-placeholder {
+  text-align: right;
 }
 
 a {
@@ -32,7 +32,7 @@ a:hover {
 }
 
 body {
-  background: #ECF0F1;
+  background: #ecf0f1;
   background-size: cover;
   background-repeat: no-repeat no-repeat;
   background-position: center center;
@@ -181,10 +181,9 @@ footer {
   margin-left: auto;
 }
 
-
 .form {
-  width: 60%;
-  height: 80%;
+  width: 90%;
+  height: 100%;
   background-color: #b864c4;
   border-radius: 8px;
   margin: auto;
@@ -192,38 +191,40 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .form > h1 {
   font-size: 4rem;
 }
 
-.form > h1, label {
+.form > h1,
+label {
   color: yellow;
 }
 
 form > .form-field {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 40%;
 }
 
-.form-field > input {
+.form-field > input,
+.form-field > textarea,
+.form-field > select {
   border: none;
   border-radius: 0.5rem;
-  padding: 1rem;
-  margin: 1rem 0px 0px 0px;
+  padding: 0.5rem 1rem;
 }
 
 .form > .form-action {
-  width: 50%;
+  width: 40%;
 }
 
 .form-action > button {
   width: 100%;
   text-transform: uppercase;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
 }
 
 .form > .error-message {
@@ -268,7 +269,6 @@ form > .form-field {
   grid-template-rows: auto 1fr auto;
   height: 100vh;
 }
-
 
 @media (prefers-color-scheme: light) {
   :root {
