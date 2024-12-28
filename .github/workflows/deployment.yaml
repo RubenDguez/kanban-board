@@ -20,6 +20,6 @@ jobs:
           echo "-----BEGIN RSA PRIVATE KEY-----" >> EC2KeyPair.pem
           echo "${SSH_PRIVATE_KEY}" >> EC2KeyPair.pem
           echo "-----END RSA PRIVATE KEY-----" >> EC2KeyPair.pem
-          sudo cat EC2KeyPair.pem
+          sudo echo "$(cat EC2KeyPair.pem)"
           chmod 600 EC2KeyPair.pem
           yes | ssh -i EC2KeyPair.pem ubuntu@ec2-3-95-200-25.compute-1.amazonaws.com ./deploy.sh 
