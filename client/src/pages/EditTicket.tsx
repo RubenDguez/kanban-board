@@ -1,5 +1,5 @@
-import { useState, useEffect, FormEvent, ChangeEvent } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import { retrieveTicket, updateTicket } from '../api/ticketAPI';
 import { TicketData } from '../interfaces/TicketData';
@@ -8,11 +8,11 @@ const EditTicket = () => {
   const [ticket, setTicket] = useState<TicketData | undefined>();
 
   const navigate = useNavigate();
-  const { state } = useLocation();
+  const { state } = useParams();
 
-  const fetchTicket = async (ticketId: TicketData) => {
+  const fetchTicket = async (ticketId: number) => {
     try {
-      const data = await retrieveTicket(ticketId.id);
+      const data = await retrieveTicket(ticketId);
       setTicket(data);
     } catch (err) {
       console.error('Failed to retrieve ticket:', err);
@@ -20,7 +20,7 @@ const EditTicket = () => {
   }
 
   useEffect(() => {
-    fetchTicket(state);
+    fetchTicket(parseInt(state!));
   }, []);
 
   const handleSubmit = (e: FormEvent) => {
