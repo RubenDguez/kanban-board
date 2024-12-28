@@ -29,4 +29,5 @@ jobs:
 
       - name: Deploy application
         id: deploy-application
-        run: ssh -i EC2KeyPair.pem -o StrictHostKeyChecking=no ${{env.AWS_USERNAME}}@${{ env.AWS_EC2_IP }} ./deploy.sh 
+        run: |
+          ssh -i EC2KeyPair.pem -o StrictHostKeyChecking=no ${{env.AWS_USERNAME}}@${{ env.AWS_EC2_IP }} ./deploy.sh 
